@@ -1,0 +1,20 @@
+{
+  "name": "basely",
+  "version": "1.0.0",
+  "description": "Base SDK ",
+  "homepage": "https://github.com/HimanshuM685/Basely#readme",
+  "bugs": {
+    "url": "https://github.com/HimanshuM685/Basely/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HimanshuM685/Basely.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
