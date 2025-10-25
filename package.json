@@ -1,6 +1,6 @@
 {
   "name": "@himanshum/basely",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Base SDK ",
   "homepage": "https://github.com/HimanshuM685/Basely#readme",
   "bugs": {
@@ -13,10 +13,10 @@
   "license": "ISC",
   "author": "Himanshu Malik <work@himanshum.com> (https://himanshum.com)",
   "type": "commonjs",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "main":"node ./src/index.js"
+    "main":"node index.js"
   },
   "dependencies": {
     "axios": "^1.12.2",
