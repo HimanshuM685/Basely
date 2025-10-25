@@ -36,14 +36,14 @@ npm install
 
 Required environment variables (as the code currently expects):
 
-- `BASE_SEPHOLIA_API_KEY` — your API key for the Etherscan-style API
+- `ETH_API_KEY` — your API key for the Etherscan-style API
 - `CHAIN_ID` — numeric chain id (optional, defaults to `8453` in code)
 
 Example `.env` (do NOT commit your real key):
 
 ```
 # .env (example)
-BASE_SEPHOLIA_API_KEY=your_api_key_here
+ETH_API_KEY=your_api_key_here
 # Optional override:
 # CHAIN_ID=8453
 ```
@@ -98,9 +98,9 @@ Exports:
 ## Inconsistencies found in the workspace
 
 - Environment variable mismatch:
-  - [src/index.js](src/index.js) expects `BASE_SEPHOLIA_API_KEY` but the sample `.env` in the repo uses `ETH_API_KEY`. See [.env](.env).
-  - The startup warning in [src/index.js](src/index.js) prints `BASESCAN_API_KEY` which is inconsistent with the used `BASE_SEPHOLIA_API_KEY`.
-  - Recommended: unify on a single env var (e.g., `BASE_SEPHOLIA_API_KEY`) and update `.env` and warning text accordingly.
+  - [src/index.js](src/index.js) expects `ETH_SEPHOLIA_API_KEY` but the sample `.env` in the repo uses `ETH_API_KEY`. See [.env](.env).
+  - The startup warning in [src/index.js](src/index.js) prints `ETH_API_KEY` which is inconsistent with the used `ETH_API_KEY`.
+  - Recommended: unify on a single env var (e.g., `ETH_API_KEY`) and update `.env` and warning text accordingly.
 
 - CHAIN_ID mismatch:
   - [src/index.js](src/index.js) defaults `CHAIN_ID` to `8453`.
@@ -120,7 +120,7 @@ Exports:
    - function [`getNumberofInternalTransactions`](src/index.js) and [`getNumberofTransactions`](src/index.js): replace `catch { console.error("Error fetching transactions:", err.message); }` with `catch (err) { console.error("Error fetching transactions:", err.message); }`.
 
 2. Unify environment variable naming:
-   - Either change [src/index.js](src/index.js) to read `process.env.ETH_API_KEY` (if you prefer current `.env`) or change `.env` to set `BASE_SEPHOLIA_API_KEY`. Update the warning text accordingly.
+   - Either change [src/index.js](src/index.js) to read `process.env.ETH_API_KEY` (if you prefer current `.env`) or change `.env` to set `ETH_API_KEY`. Update the warning text accordingly.
 
 3. Remove or isolate demo/test invocations in [src/index.js](src/index.js). Export-only modules should not run side effects on require.
 
