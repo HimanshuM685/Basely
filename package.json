@@ -1,7 +1,7 @@
 {
   "name": "@himanshum/basely",
-  "version": "1.1.1",
-  "description": "Base SDK ",
+  "version": "1.1.2",
+  "description": "Base and EVM chain API SDK",
   "homepage": "https://github.com/HimanshuM685/Basely#readme",
   "bugs": {
     "url": "https://github.com/HimanshuM685/Basely/issues"
