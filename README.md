@@ -1,6 +1,6 @@
 # Basely
 
-Basely is a small Node.js utility that fetches on-chain account insights (transaction counts and deployed contract counts) using Etherscan-style API endpoints. It is designed as a minimal SDK to inspect wallet and contract activity for Base and other chains supported by the API.
+Basely is a small Node.js utility that fetches on-chain account insights (transaction counts, balances, and deployed contract counts) using Etherscan-style API endpoints. It is designed as a minimal SDK to inspect wallet and contract activity for Base and other chains supported by the API.
 
 ---
 
@@ -8,19 +8,22 @@ Basely is a small Node.js utility that fetches on-chain account insights (transa
 
 - [README.md](README.md) — this file  
 - [package.json](package.json) — project metadata & scripts  
-- [.env](.env) — environment variables (local only; do not commit secrets)  
+- [index.js](index.js) — core implementation and exports  
 - [.gitignore](.gitignore) — ignored files  
-- [src/index.js](src/index.js) — core implementation and exports: [`getNumberofInternalTransactions`](src/index.js), [`getNumberofTransactions`](src/index.js), [`getNumberOfDeployedContractsByAddress`](src/index.js)
 
 ---
 
 ## What this module does
 
-- Count internal transactions for an address: [`getNumberofInternalTransactions`](src/index.js)  
-- Count regular transactions for an address: [`getNumberofTransactions`](src/index.js)  
-- Count deployed contracts by an address (transactions where `to` is empty): [`getNumberOfDeployedContractsByAddress`](src/index.js)
+- Get native balance for an address: `getNativeBalance`
+- Get normal transactions for an address: `getNormalTransactionsbyAddress`
+- Count internal transactions for an address: `getNumberofInternalTransactions`
+- Count regular transactions for an address: `getNumberofTransactions`
+- Count deployed contracts by an address: `getNumberOfDeployedContractsByAddress`
+- Get contract deployment transactions: `getContractDeploymentTransactions`
+- Verify contract source code: `makeGivenContractVerified`
 
-Implementation details live in [src/index.js](src/index.js). The module uses axios to call Etherscan-style endpoints and parses the `result` array returned by the API.
+Implementation details live in [index.js](index.js). The module uses axios to call Etherscan-style endpoints and parses the `result` array returned by the API.
 
 ---
 
@@ -48,15 +51,13 @@ ETH_API_KEY=your_api_key_here
 # CHAIN_ID=8453
 ```
 
-Note: The repository contains an existing `.env` file with different variable names. See "Inconsistencies & suggested fixes" below.
-
-3. Run the demo script:
+3. Run the demo script (optional):
 
 ```sh
 npm run main
 ```
 
-This runs `node ./src/index.js` (see [package.json](package.json)) and prints counts for a hard-coded test address inside [src/index.js](src/index.js).
+This runs `node index.js` (see [package.json](package.json)).
 
 ---
 
@@ -67,71 +68,63 @@ Require the exported functions and call them:
 ```js
 // Example usage
 const {
+  getNativeBalance,
+  getNormalTransactionsbyAddress,
   getNumberofInternalTransactions,
   getNumberofTransactions,
-  getNumberOfDeployedContractsByAddress
-} = require('./src/index.js');
+  getNumberOfDeployedContractsByAddress,
+  getContractDeploymentTransactions,
+  makeGivenContractVerified
+} = require('./index.js');
 
 (async () => {
   const address = '0xCAa6d6617690588371d3B94c692Fc3273F3e14f4';
-  console.log('Internal:', await getNumberofInternalTransactions(address));
-  console.log('Txs:', await getNumberofTransactions(address));
+  
+  // Get native balance
+  const balance = await getNativeBalance(address);
+  console.log('Balance:', balance);
+  
+  // Get transactions
+  const transactions = await getNormalTransactionsbyAddress(address);
+  console.log('Transactions:', transactions.length);
+  
+  // Get counts
+  console.log('Internal txs:', await getNumberofInternalTransactions(address));
+  console.log('Total txs:', await getNumberofTransactions(address));
   console.log('Deployed contracts:', await getNumberOfDeployedContractsByAddress(address));
 })();
 ```
 
-Exports:
-- [`getNumberofInternalTransactions`](src/index.js) — async (Addr) => number
-- [`getNumberofTransactions`](src/index.js) — async (Addr) => number
-- [`getNumberOfDeployedContractsByAddress`](src/index.js) — async (Addr) => number
+## Exported Functions
+
+- `getNativeBalance(Addr)` — async (Addr) => string — Returns native token balance for an address
+- `getNormalTransactionsbyAddress(Addr)` — async (Addr) => Array — Returns array of normal transactions for an address
+- `getNumberofInternalTransactions(Addr)` — async (Addr) => number — Returns count of internal transactions
+- `getNumberofTransactions(Addr)` — async (Addr) => number — Returns count of regular transactions
+- `getNumberOfDeployedContractsByAddress(Addr)` — async (Addr) => number — Returns count of contracts deployed by an address
+- `getContractDeploymentTransactions(Addr)` — async (Addr) => Array — Returns array of contract deployment transactions
+- `makeGivenContractVerified(contractAddress, sourceCode, codeFormat, contractName, compilerVersion)` — async (...) => Object — Verifies contract source code
 
 ---
 
-## API & implementation notes
+## API & Implementation Notes
 
-- Endpoints used: `https://api.etherscan.io/v2/api?...` with query parameters `module=account` and `action=txlist` / `txlistinternal`. Results parsed from the `result` field.
-- Pagination: current requests use `page=1&offset=1000`. If an account has more than 1000 records you must implement paging.
-- Contract creation detection: transactions where `tx.to` is falsy (no `to`) are treated as contract creation.
-
----
-
-## Inconsistencies found in the workspace
-
-- Environment variable mismatch:
-  - [src/index.js](src/index.js) expects `ETH_SEPHOLIA_API_KEY` but the sample `.env` in the repo uses `ETH_API_KEY`. See [.env](.env).
-  - The startup warning in [src/index.js](src/index.js) prints `ETH_API_KEY` which is inconsistent with the used `ETH_API_KEY`.
-  - Recommended: unify on a single env var (e.g., `ETH_API_KEY`) and update `.env` and warning text accordingly.
-
-- CHAIN_ID mismatch:
-  - [src/index.js](src/index.js) defaults `CHAIN_ID` to `8453`.
-  - The repo `.env` contains `CHAIN_ID=84532` (likely a typo). Verify the intended chain id.
-
-- Error handling:
-  - Two `catch` blocks in [src/index.js](src/index.js) use `catch { ... }` but attempt to read `err.message` inside — this will cause a ReferenceError. Change to `catch (err) { ... }`.
-
-- Demo code in module:
-  - [src/index.js](src/index.js) contains immediate-invoked async functions that run on module load. For library usage, remove demo invocations and provide a separate script (e.g., `scripts/demo.js`) or gate them behind a CLI flag.
+- **Endpoints**: Uses `https://api.etherscan.io/v2/api?...` with query parameters `module=account` and various actions (`txlist`, `txlistinternal`, `balance`, etc.)
+- **Pagination**: Most requests use `page=1&offset=1000`. If an account has more than 1000 records, you may need to implement paging
+- **Contract creation detection**: Transactions where `tx.to` is falsy (empty) are treated as contract creation
+- **Error handling**: Functions return empty arrays or default values (0) on error, with errors logged to console
+- **API response validation**: Functions check for `status === "1"` in API responses to ensure successful requests
 
 ---
 
-## Suggested fixes (high priority)
+## Known Issues
 
-1. Update [src/index.js](src/index.js) `catch` blocks to `catch (err) { ... }` so error logging works. Example change:
-   - function [`getNumberofInternalTransactions`](src/index.js) and [`getNumberofTransactions`](src/index.js): replace `catch { console.error("Error fetching transactions:", err.message); }` with `catch (err) { console.error("Error fetching transactions:", err.message); }`.
-
-2. Unify environment variable naming:
-   - Either change [src/index.js](src/index.js) to read `process.env.ETH_API_KEY` (if you prefer current `.env`) or change `.env` to set `ETH_API_KEY`. Update the warning text accordingly.
-
-3. Remove or isolate demo/test invocations in [src/index.js](src/index.js). Export-only modules should not run side effects on require.
-
-4. Add pagination and rate-limit handling for accounts with many transactions.
-
----
+- Some `catch` blocks in `getNumberofInternalTransactions` and `getNumberofTransactions` use `catch { ... }` but reference `err.message` inside, which will cause a ReferenceError. These should be changed to `catch (err) { ... }`
+- The warning message in `index.js` mentions `BASESCAN_API_KEY` but the code actually reads `ETH_API_KEY` from environment variables
 
 ## Scripts
 
-- `npm run main` — run the demo at [src/index.js](src/index.js)
+- `npm run main` — run the main script at [index.js](index.js)
+- `npm test` — run tests
 
 See [package.json](package.json) for details.
-
----

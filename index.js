@@ -24,6 +24,35 @@ async function getNativeBalance(Addr){
   return NativeBalance.data?.result;
 }
 
+async function getNormalTransactionsbyAddress(Addr){
+  try{
+    const Tnx = await axios.get(`https://api.etherscan.io/v2/api?apikey=${APIKEY}&chainid=${CHAIN_ID}&module=account&action=txlist&address=${Addr}&startblock=0&endblock=latest&page=1&offset=1000&sort=desc`);
+    
+    // Check if API returned an error status
+    if (Tnx.data?.status !== "1") {
+      console.error(`API Error: ${Tnx.data?.message || "Unknown error"}`);
+      return [];
+    }
+    
+    // Ensure result is an array
+    const result = Tnx.data?.result;
+    if (!result) {
+      return [];
+    }
+    
+    // Handle case where result might be a string error message instead of array
+    if (typeof result === "string") {
+      console.error(`API returned error message: ${result}`);
+      return [];
+    }
+    
+    return Array.isArray(result) ? result : [];
+  }catch(err){
+    console.error("Error fetching normal transactions:", err?.message || err);
+    return [];
+  }
+}
+
 
 
 async function getNumberofInternalTransactions(Addr) {
@@ -154,5 +183,6 @@ module.exports = {
     getNumberofTransactions,
     getContractDeploymentTransactions,
     makeGivenContractVerified,
-    getNativeBalance
+    getNativeBalance,
+    getNormalTransactionsbyAddress
 }
