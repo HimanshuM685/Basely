@@ -17,6 +17,15 @@ if (!APIKEY) {
 
 const Addrr = "0xCAa6d6617690588371d3B94c692Fc3273F3e14f4"; //test
 
+// Account Funtions
+async function getNativeBalance(Addr){
+  const NativeBalance = await axios.get(`https://api.etherscan.io/v2/api?apikey=${APIKEY}&chainid=${CHAIN_ID}&module=account&action=balance&address=${Addr}&tag=latest`)
+  
+  return NativeBalance.data?.result;
+}
+
+
+
 async function getNumberofInternalTransactions(Addr) {
     try{
         const internalTransactionCount = await axios.get(`https://api.etherscan.io/v2/api?chainid=${CHAIN_ID}&module=account&action=txlistinternal&apikey=${APIKEY}&startblock=0&endblock=latest&page=1&offset=1000&sort=desc&address=${Addr}`);
@@ -138,9 +147,12 @@ async function makeGivenContractVerified(contractAddress, sourceCode, codeFormat
 }
 
 
+
 module.exports = {
     getNumberofInternalTransactions,
     getNumberOfDeployedContractsByAddress,
     getNumberofTransactions,
-    getContractDeploymentTransactions
+    getContractDeploymentTransactions,
+    makeGivenContractVerified,
+    getNativeBalance
 }
