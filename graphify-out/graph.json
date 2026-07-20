@@ -1,0 +1,1144 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "basely_exported_api_surface",
+        "label": "Basely exported API surface",
+        "nodes": [
+          "readme_getnativebalance",
+          "readme_getnormaltransactionsbyaddress",
+          "readme_getnumberofinternaltransactions",
+          "readme_getnumberoftransactions",
+          "readme_getnumberofdeployedcontractsbyaddress",
+          "readme_getcontractdeploymenttransactions",
+          "readme_makegivencontractverified"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "/Users/fusion/Code/GitRepos/Basely/README.md"
+      },
+      {
+        "id": "etherscan_query_flow",
+        "label": "Etherscan API query flow (axios + env config + pagination)",
+        "nodes": [
+          "readme_axios",
+          "readme_etherscan_api",
+          "readme_env_config",
+          "readme_pagination_limit"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.75,
+        "source_file": "/Users/fusion/Code/GitRepos/Basely/README.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "index",
+      "community": 0,
+      "norm_label": "index.js"
+    },
+    {
+      "label": "axios",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "index_axios",
+      "community": 0,
+      "norm_label": "axios"
+    },
+    {
+      "label": "getNativeBalance()",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "index_getnativebalance",
+      "community": 0,
+      "norm_label": "getnativebalance()"
+    },
+    {
+      "label": "getNormalTransactionsbyAddress()",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "index_getnormaltransactionsbyaddress",
+      "community": 0,
+      "norm_label": "getnormaltransactionsbyaddress()"
+    },
+    {
+      "label": "getNumberofInternalTransactions()",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "index_getnumberofinternaltransactions",
+      "community": 0,
+      "norm_label": "getnumberofinternaltransactions()"
+    },
+    {
+      "label": "getNumberofTransactions()",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "index_getnumberoftransactions",
+      "community": 0,
+      "norm_label": "getnumberoftransactions()"
+    },
+    {
+      "label": "getNumberOfDeployedContractsByAddress()",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "index_getnumberofdeployedcontractsbyaddress",
+      "community": 0,
+      "norm_label": "getnumberofdeployedcontractsbyaddress()"
+    },
+    {
+      "label": "getContractDeploymentTransactions()",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "index_getcontractdeploymenttransactions",
+      "community": 0,
+      "norm_label": "getcontractdeploymenttransactions()"
+    },
+    {
+      "label": "makeGivenContractVerified()",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "index_makegivencontractverified",
+      "community": 0,
+      "norm_label": "makegivencontractverified()"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "package",
+      "community": 1,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "package_name",
+      "community": 1,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "package_version",
+      "community": 1,
+      "norm_label": "version"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "package_description",
+      "community": 1,
+      "norm_label": "description"
+    },
+    {
+      "label": "homepage",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "package_homepage",
+      "community": 1,
+      "norm_label": "homepage"
+    },
+    {
+      "label": "bugs",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "package_bugs",
+      "community": 9,
+      "norm_label": "bugs"
+    },
+    {
+      "label": "url",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "package_bugs_url",
+      "community": 9,
+      "norm_label": "url"
+    },
+    {
+      "label": "repository",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "package_repository",
+      "community": 4,
+      "norm_label": "repository"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "package_repository_type",
+      "community": 4,
+      "norm_label": "type"
+    },
+    {
+      "label": "url",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "package_repository_url",
+      "community": 4,
+      "norm_label": "url"
+    },
+    {
+      "label": "license",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "package_license",
+      "community": 1,
+      "norm_label": "license"
+    },
+    {
+      "label": "author",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "package_author",
+      "community": 1,
+      "norm_label": "author"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "package_type",
+      "community": 1,
+      "norm_label": "type"
+    },
+    {
+      "label": "main",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "package_main",
+      "community": 1,
+      "norm_label": "main"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "package_scripts",
+      "community": 5,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "package_scripts_test",
+      "community": 5,
+      "norm_label": "test"
+    },
+    {
+      "label": "main",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "package_scripts_main",
+      "community": 5,
+      "norm_label": "main"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "package_dependencies",
+      "community": 3,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "axios",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "package_dependencies_axios",
+      "community": 3,
+      "norm_label": "axios"
+    },
+    {
+      "label": "dotenv",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "package_dependencies_dotenv",
+      "community": 3,
+      "norm_label": "dotenv"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "package_devdependencies",
+      "community": 10,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "vitest",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "package_devdependencies_vitest",
+      "community": 10,
+      "norm_label": "vitest"
+    },
+    {
+      "label": "Basely SDK",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_basely",
+      "community": 11,
+      "norm_label": "basely sdk"
+    },
+    {
+      "label": "index.js (core implementation)",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_index_js",
+      "community": 2,
+      "norm_label": "index.js (core implementation)"
+    },
+    {
+      "label": "package.json",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_package_json",
+      "community": 11,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "getNativeBalance",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_getnativebalance",
+      "community": 2,
+      "norm_label": "getnativebalance"
+    },
+    {
+      "label": "getNormalTransactionsbyAddress",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_getnormaltransactionsbyaddress",
+      "community": 2,
+      "norm_label": "getnormaltransactionsbyaddress"
+    },
+    {
+      "label": "getNumberofInternalTransactions",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_getnumberofinternaltransactions",
+      "community": 8,
+      "norm_label": "getnumberofinternaltransactions"
+    },
+    {
+      "label": "getNumberofTransactions",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_getnumberoftransactions",
+      "community": 8,
+      "norm_label": "getnumberoftransactions"
+    },
+    {
+      "label": "getNumberOfDeployedContractsByAddress",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_getnumberofdeployedcontractsbyaddress",
+      "community": 7,
+      "norm_label": "getnumberofdeployedcontractsbyaddress"
+    },
+    {
+      "label": "getContractDeploymentTransactions",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_getcontractdeploymenttransactions",
+      "community": 7,
+      "norm_label": "getcontractdeploymenttransactions"
+    },
+    {
+      "label": "makeGivenContractVerified",
+      "file_type": "code",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_makegivencontractverified",
+      "community": 2,
+      "norm_label": "makegivencontractverified"
+    },
+    {
+      "label": "Etherscan-style API (api.etherscan.io/v2)",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_etherscan_api",
+      "community": 12,
+      "norm_label": "etherscan-style api (api.etherscan.io/v2)"
+    },
+    {
+      "label": "axios HTTP client",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_axios",
+      "community": 2,
+      "norm_label": "axios http client"
+    },
+    {
+      "label": "Environment configuration (ETH_API_KEY, CHAIN_ID)",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_env_config",
+      "community": 6,
+      "norm_label": "environment configuration (eth_api_key, chain_id)"
+    },
+    {
+      "label": "Contract creation detection (tx.to falsy)",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_contract_creation_detection",
+      "community": 7,
+      "norm_label": "contract creation detection (tx.to falsy)"
+    },
+    {
+      "label": "Error handling: return empty/default values, log errors",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_error_handling_defaults",
+      "community": 2,
+      "norm_label": "error handling: return empty/default values, log errors"
+    },
+    {
+      "label": "Pagination limit (page=1, offset=1000)",
+      "file_type": "rationale",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_pagination_limit",
+      "community": 12,
+      "norm_label": "pagination limit (page=1, offset=1000)"
+    },
+    {
+      "label": "Known issue: catch blocks missing err binding",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_known_issue_catch_err",
+      "community": 8,
+      "norm_label": "known issue: catch blocks missing err binding"
+    },
+    {
+      "label": "Known issue: warning says BASESCAN_API_KEY but code reads ETH_API_KEY",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_known_issue_api_key_name",
+      "community": 6,
+      "norm_label": "known issue: warning says basescan_api_key but code reads eth_api_key"
+    },
+    {
+      "label": "Base chain (chain id 8453)",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_base_chain",
+      "community": 6,
+      "norm_label": "base chain (chain id 8453)"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "index",
+      "target": "index_axios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "index",
+      "target": "index_getcontractdeploymenttransactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "index",
+      "target": "index_getnativebalance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "index",
+      "target": "index_getnormaltransactionsbyaddress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "index",
+      "target": "index_getnumberofdeployedcontractsbyaddress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "index",
+      "target": "index_getnumberofinternaltransactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "index",
+      "target": "index_getnumberoftransactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "index",
+      "target": "index_makegivencontractverified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_author",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_bugs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_homepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_license",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "package_bugs",
+      "target": "package_bugs_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "package_repository",
+      "target": "package_repository_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "package_repository",
+      "target": "package_repository_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_axios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_dotenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vitest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_basely",
+      "target": "readme_index_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_basely",
+      "target": "readme_package_json"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_error_handling_defaults",
+      "target": "readme_index_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_axios"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_env_config"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_etherscan_api"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_getcontractdeploymenttransactions"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_getnativebalance"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_getnormaltransactionsbyaddress"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_getnumberofdeployedcontractsbyaddress"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_getnumberofinternaltransactions"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_getnumberoftransactions"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_index_js",
+      "target": "readme_makegivencontractverified"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_known_issue_api_key_name",
+      "target": "readme_index_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_known_issue_catch_err",
+      "target": "readme_getnumberofinternaltransactions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_known_issue_catch_err",
+      "target": "readme_getnumberoftransactions"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_contract_creation_detection",
+      "target": "readme_getnumberofdeployedcontractsbyaddress"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_getnumberofdeployedcontractsbyaddress",
+      "target": "readme_getcontractdeploymenttransactions"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_contract_creation_detection",
+      "target": "readme_getcontractdeploymenttransactions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_pagination_limit",
+      "target": "readme_etherscan_api"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_env_config",
+      "target": "readme_base_chain"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_known_issue_api_key_name",
+      "target": "readme_env_config"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "basely_exported_api_surface",
+      "label": "Basely exported API surface",
+      "nodes": [
+        "readme_getnativebalance",
+        "readme_getnormaltransactionsbyaddress",
+        "readme_getnumberofinternaltransactions",
+        "readme_getnumberoftransactions",
+        "readme_getnumberofdeployedcontractsbyaddress",
+        "readme_getcontractdeploymenttransactions",
+        "readme_makegivencontractverified"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/fusion/Code/GitRepos/Basely/README.md"
+    },
+    {
+      "id": "etherscan_query_flow",
+      "label": "Etherscan API query flow (axios + env config + pagination)",
+      "nodes": [
+        "readme_axios",
+        "readme_etherscan_api",
+        "readme_env_config",
+        "readme_pagination_limit"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "/Users/fusion/Code/GitRepos/Basely/README.md"
+    }
+  ],
+  "built_at_commit": "45cc8e37416435d11321fa17f059cde1062717e7"
+}
