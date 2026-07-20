@@ -162,6 +162,18 @@ async function getEstimatedConfirmationTime(gasPriceWei) {
   }
 }
 
+async function checkProxyVerificationStatus(guid) {
+  try {
+    const res = await axios.get(`https://api.etherscan.io/v2/api?apikey=${APIKEY}&chainid=${CHAIN_ID}&module=contract&action=checkproxyverification&guid=${guid}`);
+
+    // status "0" still carries a meaningful message (pending / not verified), so return it either way
+    return res.data?.result || null;
+  } catch (err) {
+    console.error("Error checking proxy verification status:", err?.message || err);
+    return null;
+  }
+}
+
 async function makeGivenContractVerified(contractAddress, sourceCode, codeFormat, contractName, compilerVersion) {
   try {
     const data = {
@@ -220,5 +232,6 @@ module.exports = {
     getNativeBalance,
     getNormalTransactionsbyAddress,
     getEstimatedConfirmationTime,
-    getTransactionReceiptStatus
+    getTransactionReceiptStatus,
+    checkProxyVerificationStatus
 }
